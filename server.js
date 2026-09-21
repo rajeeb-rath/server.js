@@ -22,7 +22,8 @@ app.post('/create-order', async (req, res) => {
     const order = await razorpay.orders.create(options);
     res.json(order);
   } catch (error) {
-    res.status(500.send({ error: error.message }));
+    // FIXED LINE BELOW: Closed parenthesis after 500
+    res.status(500).send({ error: error.message });
   }
 });
 
